@@ -59,3 +59,20 @@ pass
 @task
 def sysTime(ctx):
   ctx.run('date')
+
+
+#region pre-task
+pass
+
+@task
+def task00(ctx):
+  print('task00')
+
+
+@task(pre=[task00])
+def task01a(ctx):
+  print('task01a')
+
+
+pass
+#endregion pre-task
