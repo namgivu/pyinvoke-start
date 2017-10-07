@@ -69,10 +69,14 @@ def task00(ctx):
   print('task00')
 
 
+@task(task00)
+def task01b(ctx):
+  print('task01b')
+
+
 @task(pre=[task00])
 def task01a(ctx):
   print('task01a')
-
 
 pass
 #endregion pre-task
