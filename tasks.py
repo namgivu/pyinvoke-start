@@ -17,7 +17,7 @@ def build(ctx, clean=False):
   print("Building!")
 
 
-
+#region positional param
 @task
 def hi(ctx, name):
   """
@@ -49,3 +49,9 @@ def hello(ctx, name='SomeDefaultName'):
   """
   displayName = '%s' % name
   print("Hello %s!" % displayName )
+#endregion positional param
+
+
+@task
+def sysTime(ctx):
+  ctx.run('date')
