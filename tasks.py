@@ -21,15 +21,15 @@ def build(ctx, clean=False):
 @task
 def hi(ctx, name):
   """
-  name='Nam'
+  name='NN'
 
-  invoke build -n $name
-  invoke build -n$name
+  invoke hi -n $name
+  invoke hi -n$name
 
-  invoke build --name $name
-  invoke build --name=$name
+  invoke hi --name $name
+  invoke hi --name=$name
 
-  invoke build $name #no-default-value param can become positional param
+  invoke hi $name #no-default-value param can become positional param
+  invoke hi -n    #no-default-value param -> this will fail
   """
-  displayName = '%s' % name
-  print("Hi %s!" % displayName )
+  print("Hi %s!" % name )
