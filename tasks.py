@@ -22,14 +22,14 @@ def build(ctx, clean=False):
 def hi(ctx, name):
   """
   name='Nam'
+
   invoke build -n $name
   invoke build -n$name
 
   invoke build --name $name
   invoke build --name=$name
 
-  #no-default-value param can become positional param
-  invoke build $name
+  invoke build $name #no-default-value param can become positional param
   """
   displayName = '%s' % name
   print("Hi %s!" % displayName )
