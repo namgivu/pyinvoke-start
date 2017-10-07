@@ -99,3 +99,12 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+#####
+
+.idea/misc.xml
+.idea/modules.xml
+.idea/workspace.xml
+.idea/pyinvoke-start.iml
+
+venv3/
