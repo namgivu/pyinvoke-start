@@ -33,3 +33,19 @@ def hi(ctx, name):
   invoke hi -n    #no-default-value param -> this will fail
   """
   print("Hi %s!" % name )
+
+
+@task
+def hello(ctx, name='SomeDefaultName'):
+  """
+  #similar usage as `invoke hi`
+
+  #but this works even no argument given (default one is used i.e. 'SomeDefaultName')
+  invoke hello
+
+  #though with default-value, this i.e positional-param WON'T work
+  name='NN'
+  invoke hello $name
+  """
+  displayName = '%s' % name
+  print("Hello %s!" % displayName )
