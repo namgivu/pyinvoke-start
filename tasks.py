@@ -3,11 +3,16 @@ from invoke import task
 
 @task
 def build(ctx):
-    print("Building!")
+  print("Building!")
 
 
 @task
 def build(ctx, clean=False):
-    if clean:
-        print("Cleaning!")
-    print("Building!")
+  """
+  invoke build -c
+  invoke build --clean
+  """
+  if clean:
+    print("Cleaning!")
+  print("Building!")
+
