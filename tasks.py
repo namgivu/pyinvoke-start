@@ -18,6 +18,8 @@ def build(ctx, clean=False):
 
 
 #region positional param
+pass
+
 @task
 def hi(ctx, name):
   """
@@ -49,6 +51,8 @@ def hello(ctx, name='SomeDefaultName'):
   """
   displayName = '%s' % name
   print("Hello %s!" % displayName )
+
+pass
 #endregion positional param
 
 
