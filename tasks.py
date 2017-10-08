@@ -2,12 +2,12 @@ from invoke import task
 
 
 @task
-def build(ctx):
+def buildA(ctx):
   print("Building!")
 
 
 @task
-def build(ctx, clean=False):
+def buildB(ctx, clean=False):
   """
   invoke build -c
   invoke build --clean
@@ -21,43 +21,43 @@ def build(ctx, clean=False):
 pass
 
 @task
-def hi(ctx, name):
+def hiA(ctx, name):
   """
   name='NN'
 
-  invoke hi -n $name
-  invoke hi -n$name
+  invoke hiA -n $name
+  invoke hiA -n$name
 
-  invoke hi --name $name
-  invoke hi --name=$name
+  invoke hiA --name $name
+  invoke hiA --name=$name
 
-  invoke hi $name #no-default-value param can become positional param
-  invoke hi -n    #no-default-value param -> this will fail; see how to make it work at `invoke halo -n`
+  invoke hiA $name #no-default-value param can become positional param
+  invoke hiA -n    #no-default-value param -> this will fail; see how to make it work at `invoke halo -n`
   """
   print("Hi %s!" % name )
 
 
 @task
-def hello(ctx, name='SomeDefaultName'):
+def hiB(ctx, name='SomeDefaultName'):
   """
-  #similar usage as `invoke hi`
+  #similar usage as `invoke hiA`
 
   #but this works even no argument given (default one is used i.e. 'SomeDefaultName')
-  invoke hello
+  invoke hiB
 
   #though with default-value, this i.e positional-param WON'T work
   name='NN'
-  invoke hello $name
+  invoke hiB $name
   """
-  print("Hello %s!" % name )
+  print("Hi %s!" % name )
 
 
 @task(optional=['name'])
-def halo(ctx, name):
+def hiC(ctx, name):
   """
-  #similar usage as `invoke hi`; but make `invoke hi -n` work via `optional` ref. http://docs.pyinvoke.org/en/latest/concepts/cli/intro.html#optional-flag-values
+  #similar usage as `invoke hiA`; but make `invoke hiA -n` work via `optional` ref. http://docs.pyinvoke.org/en/latest/concepts/cli/intro.html#optional-flag-values
   """
-  print("Hello %s!" % name )
+  print("Hi %s!" % name )
 
 pass
 #endregion positional param
