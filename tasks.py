@@ -32,7 +32,7 @@ def hi(ctx, name):
   invoke hi --name=$name
 
   invoke hi $name #no-default-value param can become positional param
-  invoke hi -n    #no-default-value param -> this will fail
+  invoke hi -n    #no-default-value param -> this will fail; see how to make it work at `invoke halo -n`
   """
   print("Hi %s!" % name )
 
@@ -49,8 +49,15 @@ def hello(ctx, name='SomeDefaultName'):
   name='NN'
   invoke hello $name
   """
-  displayName = '%s' % name
-  print("Hello %s!" % displayName )
+  print("Hello %s!" % name )
+
+
+@task(optional=['name'])
+def halo(ctx, name):
+  """
+  #similar usage as `invoke hi`; but make `invoke hi -n` work
+  """
+  print("Hello %s!" % name )
 
 pass
 #endregion positional param
