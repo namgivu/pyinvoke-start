@@ -1,20 +1,26 @@
 from invoke import task
 
+##region define task
+pass
 
 @task
 def buildA(ctx):
-  print("Building!")
+  """
+  hello world task
+  """
+  print("Hello world!")
 
 
 @task
 def buildB(ctx, clean=False):
   """
-  invoke build -c
-  invoke build --clean
+  task with param basic
+  invoke buildB -c
+  invoke buildB --clean
   """
   if clean:
     print("Cleaning!")
-  print("Building!")
+  print("Hello world!")
 
 
 #region positional param
@@ -23,6 +29,7 @@ pass
 @task
 def hiA(ctx, name):
   """
+  task with param intermediate
   name='NN'
 
   invoke hiA -n $name
@@ -40,7 +47,7 @@ def hiA(ctx, name):
 @task
 def hiB(ctx, name='SomeDefaultName'):
   """
-  #similar usage as `invoke hiA`
+  #similar usage as `invoke hiA` but with default value
 
   #but this works even no argument given (default one is used i.e. 'SomeDefaultName')
   invoke hiB
@@ -65,6 +72,9 @@ pass
 
 @task
 def sysTime(ctx):
+  """
+  call os commands e.g. date, ls, etc.
+  """
   ctx.run('date')
 
 
@@ -92,3 +102,6 @@ def task02(ctx):
 
 pass
 #endregion pre-task
+
+pass
+##endregion define task
