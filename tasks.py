@@ -55,7 +55,7 @@ def hello(ctx, name='SomeDefaultName'):
 @task(optional=['name'])
 def halo(ctx, name):
   """
-  #similar usage as `invoke hi`; but make `invoke hi -n` work
+  #similar usage as `invoke hi`; but make `invoke hi -n` work via `optional` ref. http://docs.pyinvoke.org/en/latest/concepts/cli/intro.html#optional-flag-values
   """
   print("Hello %s!" % name )
 
