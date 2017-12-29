@@ -31,6 +31,32 @@ def buildC(ctx, name=None):
   """
   task with params
   invoke buildC --name=Ana
+  invoke buildC --name='Ana Amerson'
   """
-  print("Hello world{}!".format(' '+name if name else ''))
+  print("Hi{}!".format(' '+name if name else ''))
 
+
+@task
+def buildD(ctx, firstName=None, lastName=None):
+  """
+  task with params
+  invoke c1.buildD
+  invoke c1.buildD -f=Ana      -l=Amerson
+  invoke c1.buildD -f='Ana bb' -l='Amerson ccc'
+  """
+  print("Hi{}{}!".format(
+    ' '+firstName if firstName else '',
+    ' '+lastName if lastName else '',
+  ))
+
+
+@task
+def buildD2(ctx, firstName, lastName):
+  """
+  task with params
+  invoke c1.buildD2
+  """
+  print("Hi{}{}!".format(
+    ' '+firstName if firstName else '',
+    ' '+lastName if lastName else '',
+  ))
