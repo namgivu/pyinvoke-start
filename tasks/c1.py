@@ -60,3 +60,17 @@ def buildD2(ctx, firstName, lastName):
     ' '+firstName if firstName else '',
     ' '+lastName if lastName else '',
   ))
+
+
+@task
+def generate_report(context, software, version):
+  """
+  invoke c1.generate_report -s='/tmp/YYmmDD-hhMMss.exe' -v='ABB-122333'
+
+  #TODO why this NOT working i.e. --version not working while -v do work
+  invoke c1.generate_report -s='/tmp/YYmmDD-hhMMss.exe' --version='ABB-122333'
+  """
+  print("{},{}!".format(
+    software,
+    version,
+  ))
